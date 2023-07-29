@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Graph1Component } from './graph1/graph1.component';
 import { Graph2Component } from './graph2/graph2.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { Graph2Component } from './graph2/graph2.component';
     NgxChartsModule,
     FormsModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
 
   ],
   declarations: [AddProductsComponent, ListProductsComponent, SellProductsComponent, GraphicsComponent, Graph1Component, Graph2Component]

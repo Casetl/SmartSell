@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../Product';
+import { StockService } from '../stock.service';
 
 @Component({
   selector: 'app-list-products',
@@ -10,8 +11,12 @@ export class ListProductsComponent implements OnInit {
 
   title = 'List Products';
   data!: Array<Product>
+  products: Array<Product> = [];
 
-  constructor() {
+  constructor(
+    private stockService: StockService
+
+  ) {
 
     this.data = [
       {id:  1,  nombre: 'Galletas',  referencia: 45 ,  categoria: 'Dulces', precio: 45,  peso: 45, inventario:78, fecha: "12/05/2023" },
@@ -22,6 +27,14 @@ export class ListProductsComponent implements OnInit {
 
   ngOnInit() {
 
+    this.getProducts()
+
+  }
+
+  getProducts(): void {
+    this.stockService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
   }
 
 }
