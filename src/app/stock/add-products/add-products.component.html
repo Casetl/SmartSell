@@ -1,0 +1,288 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-header></app-header>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 mt-5">
+    <h3 class="text-center">Agregar Producto</h3>
+  </div>
+</div>
+
+<!--Formularios-->
+<div class="row">
+    <!--Contenedor 1 -->
+  <div class="container1 col-sm-5 mt-5 mx-5">
+    <form
+      [formGroup]="productAddForm"
+      (ngSubmit)="!productAddForm.invalid && createProduct(productAddForm.value)"
+    >
+      <!--Nombre del Producto-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="name">Nombre de producto</label>
+        <input
+          novalidate
+          id="name"
+          class="form-control"
+          formControlName="name"
+          placeholder="Nombre del producto"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('name')!.hasError('required') &&
+            productAddForm.get('name')!.touched
+          "
+        >
+          Nombre requerido
+        </div>
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="productAddForm.get('name')!.hasError('minlength')"
+        >
+          Nombre muy Corto
+        </div>
+      </div>
+
+      <!--Referencia-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="referencia">Referencia</label>
+        <input
+          novalidate
+          id="referencia"
+          class="form-control"
+          formControlName="referencia"
+          placeholder="referencia"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('referencia')!.hasError('required') &&
+            productAddForm.get('referencia')!.touched
+          "
+        >
+          Referencia requerida
+        </div>
+  </div>
+
+      <!--Categoria-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="categoria">Categoria</label>
+        <input
+          novalidate
+          id="categoria"
+          class="form-control"
+          formControlName="categoria"
+          placeholder="categoria"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('categoria')!.hasError('required') &&
+            productAddForm.get('categoria')!.touched
+          "
+        >
+          Categoria requerida
+        </div>
+      </div>
+
+      <!--Precio-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="precio">Precio</label>
+        <input
+          novalidate
+          id="precio"
+          class="form-control"
+          formControlName="precio"
+          placeholder="precio"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('precio')!.hasError('required') &&
+            productAddForm.get('precio')!.touched
+          "
+        >
+          Precio requerido
+        </div>
+      </div>
+
+      <!--Peso-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="peso">Peso (kg)</label>
+        <input
+          novalidate
+          id="peso"
+          class="form-control"
+          formControlName="peso"
+          placeholder="peso"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('peso')!.hasError('required') &&
+            productAddForm.get('peso')!.touched
+          "
+        >
+          Peso requerido
+        </div>
+      </div>
+
+      <!--Inventario-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inventario">Inventario</label>
+        <input
+          novalidate
+          id="inventario"
+          class="form-control"
+          formControlName="inventario"
+          placeholder="inventario"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('inventario')!.hasError('required') &&
+            productAddForm.get('inventario')!.touched
+          "
+        >
+          Inventario requerido
+        </div>
+      </div>
+
+      <!--Fecha-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="fecha">Fecha</label>
+        <input
+          novalidate
+          id="fecha"
+          class="form-control"
+          formControlName="fecha"
+          placeholder="fecha"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('fecha')!.hasError('required') &&
+            productAddForm.get('fecha')!.touched
+          "
+        >
+          Fecha requerida
+        </div>
+      </div>
+   <br>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!productAddForm.valid"
+      >
+        Agregar
+      </button>
+      <button
+        type="button"
+        class="btn btn-info ml-3"
+        (click)="cancelCreation()"
+      >
+        Editar
+      </button>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--Contenedor 2 -->
+  <div class="container2 col-sm-5 mt-5 mx-5">
+    <form
+      [formGroup]="productAddForm"
+      (ngSubmit)="!productAddForm.invalid && createProduct(productAddForm.value)"
+    >
+      <!--Buscar-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="buscar">Buscar</label>
+        <input
+          novalidate
+          id="buscar"
+          class="form-control"
+          formControlName="buscar"
+          placeholder="Nombre del producto"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('buscar')!.hasError('required') &&
+            productAddForm.get('buscar')!.touched
+          "
+        >
+          Nombre required
+        </div>
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="productAddForm.get('name')!.hasError('minlength')"
+        >
+          Nombre muy Corto
+        </div>
+      </div>
+
+      <!--Dias en Inventario-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="referencia">Dias en Inventario</label>
+        <input
+          novalidate
+          id="referencia"
+          class="form-control"
+          formControlName="referencia"
+          placeholder="referencia"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('referencia')!.hasError('required') &&
+            productAddForm.get('referencia')!.touched
+          "
+        >
+          Referencia requerida
+        </div>
+  </div>
+
+      <!--ID Producto-->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="categoria">ID Producto</label>
+        <input
+          novalidate
+          id="categoria"
+          class="form-control"
+          formControlName="categoria"
+          placeholder="categoria"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            productAddForm.get('categoria')!.hasError('required') &&
+            productAddForm.get('categoria')!.touched
+          "
+        >
+          Categoria requerida
+        </div>
+      </div>
+      <br>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!productAddForm.valid"
+      >
+        Buscar
+      </button>
+    </form>
+  </div>
+</div>

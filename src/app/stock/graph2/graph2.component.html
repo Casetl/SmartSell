@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12 mt-5">
+    <h3 class="text-center">Ventas de Productos</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container1 col-sm-2 mx-5">
+  </div>
+  <div class="container1 col-sm-8 mx-5">
+
+    <ngx-charts-advanced-pie-chart
+        [view]="view"
+        [scheme]="'forest'"
+        [results]="single"
+        [gradient]="gradient"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+      >
+    </ngx-charts-advanced-pie-chart>
+
+
+
+  </div>
+  <div class="container1 col-sm-2  mx-5">
+ </div>
+</div>
+
