@@ -16,17 +16,10 @@ export class ListProductsComponent implements OnInit {
   constructor(
     private stockService: StockService
 
-  ) {
-
-    this.data = [
-      {id:  1,  nombre: 'Galletas',  referencia: 45 ,  categoria: 'Dulces', precio: 45,  peso: 45, inventario:78, fecha: "12/05/2023" },
-      {id:  2,  nombre: 'Dulces',  referencia: 74 ,  categoria: 'Dulces', precio: 38,  peso: 41, inventario:50, fecha: "14/05/2023" },
-      ]
-  ;
-}
+  ) {}
 
   ngOnInit() {
-
+    console.log("Aqui Comienza")
     this.getProducts()
 
   }

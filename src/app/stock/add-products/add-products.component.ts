@@ -20,13 +20,14 @@ export class AddProductsComponent implements OnInit {
   ngOnInit() {
 
     this.productAddForm = this.formBuilder.group({
-      name: ["", [Validators.required, Validators.minLength(2)]],
+      nombre: ["", [Validators.required, Validators.minLength(2)]],
       referencia: ["", Validators.required],
       categoria: ["", Validators.required],
       precio: ["", Validators.required],
       peso: ["", Validators.required],
       inventario: ["", Validators.required],
-      fecha: ["", Validators.required]
+      fecha: ["", Validators.required],
+      buscar: ["", Validators.required]
     })
 }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StockService } from '../stock.service';
+import { Format } from '../Product';
 
 @Component({
   selector: 'app-graph2',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Graph2Component implements OnInit {
 
-  view: [number, number] = [900, 300];
+  view: [number, number] = [1000, 300]
 
   // options
   gradient: boolean = true;
@@ -19,30 +21,18 @@ export class Graph2Component implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  single = [
-    {
-      "name": "Galletas",
-      "value": 40
-    },
-    {
-      "name": "Papas",
-      "value": 30
-    },
-    {
-      "name": "Agua con Gas",
-      "value": 10
-    },
-      {
-      "name": "Dulces",
-      "value": 42
-    }
-  ];
-
-  constructor() {
+  inventory: Array<Format> = [];
+  
+  constructor( private stockService: StockService,) {
 
   }
 
   ngOnInit() {
+    this.getSells()
+  }
+
+  onResize(event: any) {
+    this.view = [event.target.innerWidth / 1.35, 300];
   }
 
   onSelect(data:any): void {
@@ -58,5 +48,9 @@ export class Graph2Component implements OnInit {
   }
 
 
-
+  getSells(): void {
+    this.stockService.getSells().subscribe((products) => {
+      products.map(elem => this.inventory.push({name: elem.nombre, value: elem.cantidad_ventas}));
+    });
+  }
 }

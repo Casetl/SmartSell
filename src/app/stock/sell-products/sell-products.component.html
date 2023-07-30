@@ -1,7 +1,131 @@
-<div class="row">
-  <div class="col-sm-12">
-    <app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-header></app-header>
+    </div>
   </div>
-</div><p>
-  sell-products works!
-</p>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3 class="text-center">Venta De Productos</h3>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class=" col-2">
+
+    </div>
+
+    <div class="container1 col-8">
+      <form
+        [formGroup]="productAddForm"
+        (ngSubmit)="
+          !productAddForm.invalid && createProduct(productAddForm.value)
+        "
+      >
+        <!--Nombre del Producto-->
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="name">Id del Producto</label>
+          <input
+            novalidate
+            id="id"
+            class="form-control"
+            formControlName="id"
+            placeholder="Id del producto"
+          />
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            *ngIf="
+              productAddForm.get('id')!.hasError('required') &&
+              productAddForm.get('id')!.touched
+            "
+          >
+            Id requerido
+          </div>
+        </div>
+
+        <!--Referencia-->
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="nombre">Nombre del Producto</label>
+          <input
+            novalidate
+            id="nombre"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="nombre"
+          />
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            *ngIf="
+              productAddForm.get('nombre')!.hasError('required') &&
+              productAddForm.get('nombre')!.touched
+            "
+          >
+            Nombre Requerido
+          </div>
+        </div>
+
+        <!--Categoria-->
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="cantidad">Catidad Disponible</label>
+          <input
+            novalidate
+            id="cantidad"
+            class="form-control"
+            formControlName="catidad"
+            placeholder="catidad"
+          />
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            *ngIf="
+              productAddForm.get('catidad')!.hasError('required') &&
+              productAddForm.get('catidad')!.touched
+            "
+          >
+            Cantidad requerida
+          </div>
+        </div>
+
+        <!--Precio-->
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="venta">Cantidad a Vender</label>
+          <input
+            novalidate
+            id="venta"
+            class="form-control"
+            formControlName="venta"
+            placeholder="venta"
+          />
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            *ngIf="
+              productAddForm.get('venta')!.hasError('required') &&
+              productAddForm.get('venta')!.touched
+            "
+          >
+            Cantidad de Venta requerida
+          </div>
+        </div>
+
+        <br />
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!productAddForm.valid"
+        >
+          Buscar
+        </button>
+        <button
+          type="button"
+          class="btn btn-info ml-3"
+          (click)="cancelCreation()"
+        >
+          Vender
+        </button>
+      </form>
+    </div>
+    <div class="col-2">
+
+    </div>
+  </div>
+</div>

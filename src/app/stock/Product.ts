@@ -7,7 +7,7 @@ export class Product {
   precio: number ;
   peso: number;
   inventario: number;
-  fecha: string;
+  fecha_creacion: string;
 
   constructor(
     id: number,
@@ -17,7 +17,7 @@ export class Product {
     precio: number,
     peso: number,
     inventario: number,
-    fecha: string
+    fecha_creacion: string
 
   )
 
@@ -29,6 +29,76 @@ export class Product {
     this.precio = precio;
     this.peso = peso;
     this.inventario = inventario;
-    this.fecha = fecha;
+    this.fecha_creacion = fecha_creacion;
   }
 }
+
+
+
+
+export class Inventory {
+
+
+  nombre: string;
+  inventario: number;
+
+
+  constructor(
+
+    nombre: string,
+    inventario: number,
+
+  )
+
+  {
+
+    this.nombre = nombre;
+    this.inventario = inventario;
+
+  }
+}
+
+export class Format {
+
+
+  name: string;
+  value: number;
+
+
+  constructor(
+
+    name: string,
+    value: number,
+
+  )
+
+  {
+
+    this.name = name;
+    this.value = value;
+
+  }
+}
+
+export class Sell {
+
+
+  nombre: string;
+  cantidad_ventas: number;
+
+
+  constructor(
+
+    nombre: string,
+    cantidad_ventas: number,
+
+  )
+
+  {
+
+    this.nombre = nombre;
+    this.cantidad_ventas = cantidad_ventas;
+
+  }
+}
+
